@@ -1,10 +1,15 @@
 package org.usfirst.frc.team1787.robot.auto;
 
+
+import org.usfirst.frc.team1787.robot.subsystems.DriveTrain;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class AutoMethods {
-
+	
+	
+	private DriveTrain driveTrain = DriveTrain.getInstance();
   private SendableChooser<Integer> autoChooser = new SendableChooser<Integer>();
   private int selectedAuto;
 
@@ -15,6 +20,7 @@ public class AutoMethods {
     autoChooser.addObject("auto3", 3);
     
     SmartDashboard.putData("Auto Chooser", autoChooser);
+    
   }
 
   public void getSelectedAutoRoutine() {
@@ -32,7 +38,7 @@ public class AutoMethods {
   }
 
   public void auto1() {
-
+	  driveTrain.setLeftRightMotorOutputs(-0.25, 0.25);
   }
   
   public void auto2() {
